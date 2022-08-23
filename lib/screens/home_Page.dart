@@ -39,7 +39,7 @@ class Home extends StatelessWidget {
                   height: 20,
                 ),
               StreamBuilder(
-                  stream: Stream.periodic(const Duration(seconds: 60)),
+                  stream: Stream.periodic(const Duration(seconds: 40)),
                   builder: (context, snapshot) {
                     return Text(
                       DateFormat('hh:mm a').format(DateTime.now(),), style: const TextStyle(
