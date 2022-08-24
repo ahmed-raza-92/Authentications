@@ -1,10 +1,9 @@
 import 'package:authentications/screens/email_authentication.dart';
 import 'package:authentications/screens/google_authentication.dart';
 import 'package:authentications/screens/otp_authentication.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-
+import 'package:provider/provider.dart';
+import '../model/ToDoModel.dart';
 import 'facebook_authentication.dart';
 import 'home_Page.dart';
 
@@ -23,14 +22,22 @@ class _AuthenticationUIState extends State<AuthenticationUI> {
         title: const Text("Authentications"),
         actions: [
           IconButton(
-              onPressed: (){
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const Home()));
-              }, icon: const Icon(Icons.home)
-          )
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChangeNotifierProvider(
+                      create: (context) => ToDoModel(),
+                      child: const Home(),
+                    ),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.home))
         ],
       ),
       body: SingleChildScrollView(
-        child: (Container(
+        child: Container(
           padding: const EdgeInsets.all(80),
           child: Center(
             child: Column(
@@ -59,7 +66,10 @@ class _AuthenticationUIState extends State<AuthenticationUI> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const FaceBookLogin()));
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const FaceBookLogin()));
                     },
                     child: const Text(
                       "Sign in With Facebook",
@@ -81,7 +91,7 @@ class _AuthenticationUIState extends State<AuthenticationUI> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 SizedBox(
@@ -89,7 +99,11 @@ class _AuthenticationUIState extends State<AuthenticationUI> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const PhoneNumberVerification()));
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const PhoneNumberVerification()));
                     },
                     child: const Text(
                       "Phone Number",
@@ -105,7 +119,11 @@ class _AuthenticationUIState extends State<AuthenticationUI> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const GoogleAuthentication()));
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const GoogleAuthentication()));
                     },
                     child: const Text(
                       "Sign in with Google",
@@ -116,10 +134,8 @@ class _AuthenticationUIState extends State<AuthenticationUI> {
               ],
             ),
           ),
-        )),
+        ),
       ),
     );
   }
-
-
 }
