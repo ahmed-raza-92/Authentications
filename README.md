@@ -1,16 +1,9 @@
-# authentications
+Firebase Authentications.
+This Project contains all of the Firebase Authentications:
 
-A new Flutter project.
+Email/Password, Google, FaceBook, Phone Number, Apple (Not updated yet).
 
-## Getting Started
+In addition to authentications it contains provider state management. 
 
-This project is a starting point for a Flutter application.
+It has TODO application having Provider used in it.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
